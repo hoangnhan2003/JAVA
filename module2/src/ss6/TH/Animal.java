@@ -1,6 +1,6 @@
-package ss6;
+package ss6.TH;
 
-public abstract class Animal {
+ abstract class Animal {
     public abstract String makeSound();
 
 }
@@ -31,3 +31,17 @@ class Chicken extends Animal implements Edible {
 abstract class Fruit implements Edible{
 
 }
+class Orange extends Fruit{
+    @Override
+    public String howtoEat(){
+        return "Orange could be juiced";
+    }
+}
+class Apple extends Fruit{
+    @Override
+    public String howtoEat(){
+        return "Apple could be slided";
+    }
+}
+
+
