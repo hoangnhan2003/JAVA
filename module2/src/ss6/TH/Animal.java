@@ -1,6 +1,6 @@
 package ss6.TH;
 
- abstract class Animal {
+abstract class Animal {
     public abstract String makeSound();
 
 }
