@@ -1,9 +1,15 @@
-package BTTHEMHAITT.BT1;
+package BTTHEMHAITT.BT1.controller;
+
+import BTTHEMHAITT.BT1.model.Student;
+import BTTHEMHAITT.BT1.model.Teacher;
+import BTTHEMHAITT.BT1.repository.ArrTeacher;
+import BTTHEMHAITT.BT1.service.ServiceStudent;
+import BTTHEMHAITT.BT1.service.ServiceTeacher;
 
 import java.util.Scanner;
 
 public class controller {
-    public static int select(){
+    public static int Select(){
         Scanner scanner = new Scanner(System.in);
         int select;
         System.out.println("---------------MENU----------------------");
@@ -17,10 +23,11 @@ public class controller {
         select = Integer.parseInt(scanner.nextLine());
         return select;
     }
-    public static void MENU(ArrStudent arrStd,ArrTeacher arrTeacher){
+    public static void MENU(ServiceStudent arrStd, ServiceTeacher arrTeacher){
         Scanner scanner = new Scanner(System.in);
-        int select = select();
+        int select;
         do {
+            select = Select();
             switch (select){
                 case 1:
                     int quantity;
@@ -44,17 +51,47 @@ public class controller {
                         System.out.println("Enter mark");
                         mark = Double.parseDouble(scanner.nextLine());
                         Student newStudent = new Student(name,birthday,sex,classroom,mark);
-                        arrStd.addStd(newStudent);
+                        arrStd.add(newStudent);
 
                     }
                     break;
                 case 2:
+                    int amount;
+                    System.out.println("Enter amount of student");
+                    amount = Integer.parseInt(scanner.nextLine());
+                    for (int i = 0; i < amount; i++) {
+                        String id,name,birthday1,classOfTeacher,profession;
+                        int sex;
+                        System.out.println("Enter id:");
+                        id = scanner.nextLine();
+                        System.out.println("Enter name");
+                        name = scanner.nextLine();
+                        System.out.println("Enter birthday:");
+                        birthday1 = scanner.nextLine();
+                        System.out.println("Enter sex:");
+                        System.out.println("1:Male");
+                        System.out.println("2:Female");
+                        System.out.println("3:Other");
+                        sex = Integer.parseInt(scanner.nextLine());
+                        System.out.println("Enter classroom");
+                        classOfTeacher = scanner.nextLine();
+                        System.out.println("Enter professional:");
+                        profession = scanner.nextLine();
+                        Teacher newTeacher = new Teacher(id,name,birthday1,sex,profession);
+                        arrTeacher.add(newTeacher);
+                    }
                     break;
                 case 3:
                     int index;
                     System.out.println("Enter index you want to delete");
                     index = Integer.parseInt(scanner.nextLine());
-                    arrStd.removeStd(index);
+                    arrStd.remove(index);
+                    break;
+                case 4:
+                    int index2;
+                    System.out.println("Enter index you want to delete");
+                    index2 = Integer.parseInt(scanner.nextLine());
+                    arrTeacher.remove(index2);
                     break;
                 case 5:
                     arrStd.display();
@@ -66,16 +103,10 @@ public class controller {
         }while (select!=0);
     }
     public static void main(String[] args) {
-        ArrStudent<Student> arrStd = new ArrStudent<>();
-        Student std1 = new Student("Nhan","21/12/2012",1,"A05",8.5);
-        Student std2 = new Student("Nhan2","21/12/2012",1,"A05",9.5);
-        ArrTeacher<Teacher> arrTeacher = new ArrTeacher<>();
-        Teacher teacher1 = new Teacher("1232","asfa","21/2/2001",1,"Tutor");
-        arrTeacher.addTeacher(teacher1);
-        arrTeacher.display();
-        arrStd.addStd(std1);
-        arrStd.addStd(std2);
-        arrStd.display();
+        ServiceTeacher serviceTeacher = new ServiceTeacher();
+        ServiceStudent serviceStudent = new ServiceStudent();
+        MENU(serviceStudent,serviceTeacher);
+
 
 
     }

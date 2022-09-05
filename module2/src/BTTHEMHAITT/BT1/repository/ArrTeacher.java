@@ -1,18 +1,20 @@
-package BTTHEMHAITT.BT1;
+package BTTHEMHAITT.BT1.repository;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArrStudent<T> {
-    private int DEFAULT_CAPACITY =10;
-    List<T> arrayStd;
+public class ArrTeacher<T> {
 
-    public ArrStudent(){
+    private int DEFAULT_CAPACITY =10;
+    List<T> arrayStd ;
+
+    public ArrTeacher(){
         arrayStd = new ArrayList<>();
     }
-    public void addStd(T student){
-        arrayStd.add(student);
+    public void addTeacher(T teacher){
+        arrayStd.add(teacher);
     }
-    public void removeStd(int index){
+    public void removeTeacher(int index){
         arrayStd.remove(index);
     }
     public void display(){
@@ -21,6 +23,3 @@ public class ArrStudent<T> {
         }
     }
 }
-
-
-

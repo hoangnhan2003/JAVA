@@ -1,4 +1,4 @@
-package BTTHEMHAITT.BT1;
+package BTTHEMHAITT.BT1.model;
 
 public class Student {
     private static int count = 1;
