@@ -1,35 +1,24 @@
 package BTTHEMHAITT.BT1.model;
 
-public class Student {
-    private static int count = 1;
-    private int id;
-    private String name;
-    private String birthday;
-    private int sex;
+public class Student extends Person{
+
     private String classOfStd;
     private double mark;
 
-
-
-    public Student( String name, String birthday, int sex, String classOfStd, double mark) {
-        this.id = count;
-        this.birthday = birthday;
-        this.sex = sex;
+    public Student( String name,String dateOfBirth, int sex, String classOfStd, double mark) {
+        super( name, dateOfBirth, sex);
         this.classOfStd = classOfStd;
         this.mark = mark;
-        this.name = name;
-        count++;
     }
-    public Student(){
 
-    }
+
     @Override
     public String toString() {
         return "Student{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", birthday='" + birthday + '\'' +
-                ", sex=" + sex +
+                "id='" +
+                ", name='" + super.getName() + '\'' +
+                ", birthday='" + super.getDateOfBirth() + '\'' +
+                ", sex=" + super.getSex() +
                 ", classOfStd='" + classOfStd + '\'' +
                 ", mark=" + mark +
                 '}';

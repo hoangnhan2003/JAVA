@@ -1,25 +1,30 @@
-package BTTHEMHAITT.BT1.repository;
+package BTTHEMHAITT.BT1.repository.impl;
+
+import BTTHEMHAITT.BT1.model.Teacher;
+import BTTHEMHAITT.BT1.repository.RepoPerson;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArrTeacher<T> {
+public class ArrTeacher implements RepoPerson<Teacher> {
 
     private int DEFAULT_CAPACITY =10;
-    List<T> arrayStd ;
+    List<Teacher> arrayStd ;
 
     public ArrTeacher(){
         arrayStd = new ArrayList<>();
     }
-    public void addTeacher(T teacher){
+    public void add(Teacher teacher){
         arrayStd.add(teacher);
     }
-    public void removeTeacher(int index){
+    public void remove(int index){
         arrayStd.remove(index);
     }
     public void display(){
-        for (T element : arrayStd){
+        for (Teacher element : arrayStd){
             System.out.println(element.toString());
         }
     }
+
+
 }

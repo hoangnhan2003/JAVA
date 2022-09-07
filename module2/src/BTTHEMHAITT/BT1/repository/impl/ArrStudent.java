@@ -1,4 +1,4 @@
-package BTTHEMHAITT.BT1.repository;
+package BTTHEMHAITT.BT1.repository.impl;
 import BTTHEMHAITT.BT1.model.Student;
 
 import java.util.ArrayList;

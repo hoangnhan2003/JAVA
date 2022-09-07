@@ -2,9 +2,8 @@ package BTTHEMHAITT.BT1.controller;
 
 import BTTHEMHAITT.BT1.model.Student;
 import BTTHEMHAITT.BT1.model.Teacher;
-import BTTHEMHAITT.BT1.repository.ArrTeacher;
-import BTTHEMHAITT.BT1.service.ServiceStudent;
-import BTTHEMHAITT.BT1.service.ServiceTeacher;
+import BTTHEMHAITT.BT1.service.impl.ServiceStudent;
+import BTTHEMHAITT.BT1.service.impl.ServiceTeacher;
 
 import java.util.Scanner;
 
@@ -34,50 +33,17 @@ public class controller {
                     System.out.println("Enter amount of student");
                     quantity = Integer.parseInt(scanner.nextLine());
                     for (int i = 0; i < quantity; i++) {
-                        String name,birthday,classroom;
-                        int sex;
-                        double mark;
-                        System.out.println("Enter name:");
-                        name = scanner.nextLine();
-                        System.out.println("Enter date of birth:");
-                        birthday = scanner.nextLine();
-                        System.out.println("Enter sex:");
-                        System.out.println("1:Male");
-                        System.out.println("2:Female");
-                        System.out.println("3:Other");
-                        sex = Integer.parseInt(scanner.nextLine());
-                        System.out.println("Enter classroom");
-                        classroom = scanner.nextLine();
-                        System.out.println("Enter mark");
-                        mark = Double.parseDouble(scanner.nextLine());
-                        Student newStudent = new Student(name,birthday,sex,classroom,mark);
+                        Student newStudent = arrStd.infomation();
                         arrStd.add(newStudent);
 
                     }
                     break;
                 case 2:
                     int amount;
-                    System.out.println("Enter amount of student");
+                    System.out.println("Enter amount of teacher");
                     amount = Integer.parseInt(scanner.nextLine());
                     for (int i = 0; i < amount; i++) {
-                        String id,name,birthday1,classOfTeacher,profession;
-                        int sex;
-                        System.out.println("Enter id:");
-                        id = scanner.nextLine();
-                        System.out.println("Enter name");
-                        name = scanner.nextLine();
-                        System.out.println("Enter birthday:");
-                        birthday1 = scanner.nextLine();
-                        System.out.println("Enter sex:");
-                        System.out.println("1:Male");
-                        System.out.println("2:Female");
-                        System.out.println("3:Other");
-                        sex = Integer.parseInt(scanner.nextLine());
-                        System.out.println("Enter classroom");
-                        classOfTeacher = scanner.nextLine();
-                        System.out.println("Enter professional:");
-                        profession = scanner.nextLine();
-                        Teacher newTeacher = new Teacher(id,name,birthday1,sex,profession);
+                       Teacher newTeacher = arrTeacher.infomation();
                         arrTeacher.add(newTeacher);
                     }
                     break;
@@ -106,8 +72,5 @@ public class controller {
         ServiceTeacher serviceTeacher = new ServiceTeacher();
         ServiceStudent serviceStudent = new ServiceStudent();
         MENU(serviceStudent,serviceTeacher);
-
-
-
     }
 }

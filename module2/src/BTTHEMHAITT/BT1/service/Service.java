@@ -6,4 +6,5 @@ public interface Service<T> {
     void add(T element);
     void remove(int index);
     void display();
+    T infomation();
 }
