@@ -7,8 +7,20 @@ public class Product extends AbsProduct implements Comparable<Product>{
         super(id, name, price);
     }
 
+    public Product() {
+
+    }
+
     @Override
     public int compareTo(Product o) {
         return this.getPrice() > o.getPrice()? 1 : -1 ;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" + "id:"+ super.getId()+"\t"+
+                "name: "+ super.getName()+"\t"+
+                "price: "+super.getPrice() +
+                "}";
     }
 }

@@ -11,6 +11,10 @@ public abstract class AbsProduct {
         this.price = price;
     }
 
+    public AbsProduct() {
+
+    }
+
     public String getId() {
         return id;
     }
