@@ -1,8 +1,5 @@
 package ss13.BT;
-
-
-
-import java.util.LinkedList;
+    import java.util.LinkedList;
 import java.util.Scanner;
 
 public class DisplayIncreaseString {
