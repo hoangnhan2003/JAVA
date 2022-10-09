@@ -1,4 +1,7 @@
 package CaseStudy.ManageResort.controller;
+import CaseStudy.ManageResort.repository.IBooking.Impl.BookingRepo;
+import CaseStudy.ManageResort.service.Ifeature.IpmlFeature.BookingService;
+import CaseStudy.ManageResort.service.Ifeature.IpmlFeature.ContractService;
 import CaseStudy.ManageResort.service.ImplFacility.HouseService;
 import CaseStudy.ManageResort.service.ImplFacility.RoomService;
 import CaseStudy.ManageResort.service.ImplFacility.VillaService;
@@ -15,6 +18,8 @@ public class FuramaController {
     private static EmployeeService employeeService = new EmployeeService();
     private static CustomerService customerService = new CustomerService();
     private static FuramaView furamaView = new FuramaView();
+    private static BookingService bookingService = new BookingService();
+    private static ContractService contractService = new ContractService();
 
     public static void main(String[] args) {
 
@@ -26,9 +31,10 @@ public class FuramaController {
         switch (mainSelect){
             case 1:
                 int employeeSelect;
-                employeeSelect = Integer.parseInt(scanner.nextLine());
+
                 do {
                     furamaView.displayEmployeeMenu();
+                    employeeSelect = Integer.parseInt(scanner.nextLine());
                     switch (employeeSelect){
                         case 1:
                             employeeService.displayListPerson();
@@ -119,21 +125,23 @@ public class FuramaController {
                 break;
             case 4:
                 int bookingSelect;
-                bookingSelect = Integer.parseInt(scanner.nextLine());
+
                 do {
                     furamaView.displayBookingMenu();
+                    bookingSelect = Integer.parseInt(scanner.nextLine());
+
                     switch (bookingSelect){
                         case 1:
-                            // add
+                            bookingService.createNewFeature();
                             break;
                         case 2:
-                            //display
+                            bookingService.display();
                             break;
                         case 3:
-                            //create new contract
+                            contractService.createNewFeature();
                             break;
                         case 4:
-                            //displayListContract
+                            contractService.display();
                             break;
                         case 5:
                             //editContract

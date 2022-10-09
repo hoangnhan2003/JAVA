@@ -1,5 +1,7 @@
 package CaseStudy.ManageResort.model.feature;
 
+import java.util.Objects;
+
 public abstract class AbsService {
     private String bookingCode;
     private String startDay;
@@ -7,14 +9,28 @@ public abstract class AbsService {
     private String customerCode;
     private String nameService;
     private String serviceType;
+    private boolean hasContract;
 
-    public AbsService(String bookingCode, String startDay, String endDay, String customerCode, String nameService, String serviceType) {
+    public AbsService(String bookingCode, String startDay, String endDay, String customerCode, String nameService, String serviceType,boolean hasContract) {
         this.bookingCode = bookingCode;
         this.startDay = startDay;
         this.endDay = endDay;
         this.customerCode = customerCode;
         this.nameService = nameService;
         this.serviceType = serviceType;
+        this.hasContract = hasContract;
+    }
+
+    public boolean isHasContract() {
+        return hasContract;
+    }
+
+    public void setHasContract(boolean hasContract) {
+        this.hasContract = hasContract;
+    }
+
+    public AbsService(String bookingCode) {
+        this.bookingCode = bookingCode;
     }
 
     public String getBookingCode() {
@@ -72,17 +88,29 @@ public abstract class AbsService {
                 endDay + ',' +
                 customerCode + ',' +
                 nameService + ',' +
-                serviceType + '\n';
+                serviceType +','+
+                hasContract +  '\n';
     }
 
     public String display(){
-        return "Service{" +
+        return "Booking{" +
                 "bookingCode='" + bookingCode + '\'' +
                 ", startDay='" + startDay + '\'' +
                 ", endDay='" + endDay + '\'' +
                 ", customerCode='" + customerCode + '\'' +
                 ", nameService='" + nameService + '\'' +
                 ", serviceType='" + serviceType + '\'' +
+                "hasContract = "+ hasContract+ '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof AbsService)) return false;
+        AbsService that = (AbsService) o;
+        return Objects.equals(getBookingCode(), that.getBookingCode());
+    }
+
+
 }
