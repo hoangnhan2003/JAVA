@@ -25,17 +25,15 @@ public class findMaxValue {
         }
         return numbers;
     }
-    public static void writeFile(String filePath,int max){
-        try{
+    public static void writeFile(String filePath,int max) throws IOException {
+
             FileWriter writer = new FileWriter(filePath);
             BufferedWriter bufferedWriter = new BufferedWriter(writer);
             bufferedWriter.write("Max: "+ max);
             bufferedWriter.close();
-        } catch (Exception e) {
-            System.out.println("Invalid!!");
-        }
+
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         String filePath = "H:\\CODEGYM\\module2\\src\\ss16IOTextFile\\TH\\timMax\\number.txt";
         List<Integer> numbers = readFile(filePath);
         for (Integer x : numbers){
